@@ -2,72 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Gold-backed Fintech Design System */
-    --background: 232 47% 8%;
-    --foreground: 45 30% 95%;
+    /* Premium Gold Fintech - Refined Palette */
+    --background: 220 20% 4%;
+    --foreground: 40 20% 95%;
 
-    --card: 232 40% 12%;
-    --card-foreground: 45 30% 95%;
+    --card: 220 18% 8%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 232 40% 12%;
-    --popover-foreground: 45 30% 95%;
+    --popover: 220 18% 8%;
+    --popover-foreground: 40 20% 95%;
 
-    /* Royal Gold - Primary */
-    --primary: 45 65% 52%;
-    --primary-foreground: 232 47% 8%;
+    /* Premium Gold */
+    --primary: 43 74% 49%;
+    --primary-foreground: 220 20% 4%;
 
-    /* Midnight Blue - Secondary */
-    --secondary: 234 69% 30%;
-    --secondary-foreground: 45 30% 95%;
+    /* Deep Navy */
+    --secondary: 230 50% 15%;
+    --secondary-foreground: 40 20% 95%;
 
-    /* Muted Navy */
-    --muted: 232 35% 18%;
-    --muted-foreground: 232 20% 60%;
+    /* Muted */
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
 
     /* Gold Accent */
-    --accent: 45 80% 60%;
-    --accent-foreground: 232 47% 8%;
+    --accent: 38 85% 55%;
+    --accent-foreground: 220 20% 4%;
 
     /* Success - Emerald */
-    --success: 145 100% 39%;
+    --success: 152 69% 45%;
     --success-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 232 30% 20%;
-    --input: 232 30% 20%;
-    --ring: 45 65% 52%;
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 43 74% 49%;
 
     --radius: 1rem;
 
-    /* Custom gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(45 65% 52%) 0%, hsl(38 70% 45%) 50%, hsl(45 80% 60%) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    --gradient-dark: linear-gradient(180deg, hsl(232 47% 8%) 0%, hsl(232 50% 5%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(232 40% 14%) 0%, hsl(232 40% 10%) 100%);
+    /* Premium Shadows */
+    --shadow-gold: 0 0 80px -20px hsla(43, 74%, 49%, 0.4);
+    --shadow-soft: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
 
-    /* Shadows */
-    --shadow-gold: 0 4px 30px rgba(212, 175, 55, 0.2);
-    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.4);
-
-    /* Glass effect */
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-
-    --sidebar-background: 232 47% 8%;
-    --sidebar-foreground: 45 30% 95%;
-    --sidebar-primary: 45 65% 52%;
-    --sidebar-primary-foreground: 232 47% 8%;
-    --sidebar-accent: 232 35% 18%;
-    --sidebar-accent-foreground: 45 30% 95%;
-    --sidebar-border: 232 30% 20%;
-    --sidebar-ring: 45 65% 52%;
+    --sidebar-background: 220 20% 4%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 43 74% 49%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 43 74% 49%;
   }
 }
 
@@ -77,102 +67,87 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background: var(--gradient-dark);
+    @apply bg-background text-foreground font-body antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-heading;
   }
 }
 
 @layer components {
-  .glass-card {
-    @apply backdrop-blur-xl border border-glass rounded-2xl;
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
-    box-shadow: var(--shadow-glass);
+  .premium-card {
+    @apply relative overflow-hidden rounded-2xl border border-border/50 bg-card;
+    box-shadow: var(--shadow-card);
   }
 
-  .gold-gradient {
-    background: var(--gradient-gold);
+  .premium-card::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%);
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      110deg,
+      hsl(43 74% 49%) 0%,
+      hsl(38 85% 55%) 25%,
+      hsl(45 80% 60%) 50%,
+      hsl(38 85% 55%) 75%,
+      hsl(43 74% 49%) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
   }
 
   .gold-text {
-    background: var(--gradient-gold);
+    background: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(38 85% 65%) 50%, hsl(43 74% 49%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .mandala-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03'%3E%3Cpath d='M30 30c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm0 0c0 11.046-8.954 20-20 20S-10 41.046-10 30s8.954-20 20-20 20 8.954 20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
   }
 
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(212, 175, 55, 0.1) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
+  .verified-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+    background: linear-gradient(135deg, hsl(152 69% 45%) 0%, hsl(152 69% 35%) 100%);
+    color: white;
   }
 }
 
 @layer utilities {
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-pulse-gold {
-    animation: pulse-gold 2s ease-in-out infinite;
-  }
-
-  .animate-shimmer {
-    animation: shimmer 2s infinite;
-  }
-
-  .animate-scale-in {
-    animation: scale-in 0.3s ease-out;
-  }
-
-  .animate-fade-up {
-    animation: fade-up 0.5s ease-out;
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
   }
 
   .animate-slide-up {
-    animation: slide-up 0.4s ease-out;
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out forwards;
   }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
-  50% { box-shadow: 0 0 20px 10px rgba(212, 175, 55, 0.1); }
-}
-
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-@keyframes scale-in {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-@keyframes fade-up {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slide-up {
-  0% { transform: translateY(100%); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
