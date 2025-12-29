@@ -1,9 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { Zap, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
 export const InstantCashBanner = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="mx-5 mt-8 p-5 rounded-2xl gold-shimmer relative overflow-hidden animate-slide-up" style={{ animationDelay: "0.5s" }}>
+    <div 
+      className="mx-5 mt-8 p-5 rounded-2xl gold-shimmer relative overflow-hidden cursor-pointer"
+      onClick={() => navigate("/wallet")}
+    >
       <div className="relative z-10 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center">
