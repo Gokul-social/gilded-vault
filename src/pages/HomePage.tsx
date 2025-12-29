@@ -6,20 +6,18 @@ import { QuickActions } from "@/components/QuickActions";
 import { InstantCashBanner } from "@/components/InstantCashBanner";
 import { TrustFooter } from "@/components/TrustFooter";
 
-const Index = () => {
+const HomePage = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-md mx-auto pb-safe">
-        <Header />
-        <HeroBalance />
-        <GoldPrice />
-        <VaultCollection />
-        <QuickActions />
-        <InstantCashBanner />
-        <TrustFooter />
-      </div>
+    <div className="animate-fade-in">
+      <Header />
+      <HeroBalance />
+      <GoldPrice />
+      <VaultCollection />
+      <QuickActions />
+      <InstantCashBanner />
+      <TrustFooter />
     </div>
   );
 };
 
-export default Index;
+export default HomePage;
